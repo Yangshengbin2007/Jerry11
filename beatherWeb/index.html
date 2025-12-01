@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+	
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href=
+"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+	<title>Beather</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+
+<body>
+	<!-- Splash screen -->
+	<div id="splash-screen" class="splash-screen">
+		<img src="../Images/beatherlogo2.png" alt="Beather Logo" class="splash-logo">
+	</div>
+	
+	<!-- Background video (looping MP4) -->
+	<div id="page-bg" class="page-bg"></div>
+	<video id="weather-video" class="weather-video" autoplay muted loop playsinline>
+		<source src="../Images/weatherbackground/background.mp4" type="video/mp4">
+	</video>
+
+	<!-- Sunny Clicker Game Overlay -->
+	<div id="game-overlay" class="hidden">
+		<div class="game-content">
+			<h2>Sunny Clicker</h2>
+			<div id="game-timer">10</div>
+			<div id="game-score">Score: 0</div>
+			<div id="game-area"></div>
+			<button id="game-exit">Exit Game</button>
+		</div>
+	</div>
+
+
+	<!-- Background audio -->
+	<audio id="weather-audio" class="weather-audio" loop>
+		<source src="../Images/weatherbackground/backgroundmusic.mp3" type="audio/mpeg">
+	</audio>
+
+	<!-- Control buttons (bottom-right) -->
+	<div class="controls">
+		<div style="display: flex; gap: 8px;">
+			<button id="gamepad-btn" class="control-btn gamepad-btn" title="Play Game">
+				<i class="fas fa-gamepad"></i>
+			</button>
+			<button id="detect-location" class="control-btn location-btn" title="Detect Location">
+				<i class="fas fa-map-marker-alt"></i>
+			</button>
+			<button id="toggle-audio" class="control-btn audio-btn" title="Toggle Audio">
+				<i class="fas fa-volume-up"></i>
+			</button>
+			<button id="toggle-background" class="control-btn bg-btn" title="Toggle Background">
+				<i class="fas fa-image"></i>
+			</button>
+		</div>
+		<!-- Shown only if autoplay is blocked to let user enable sound -->
+		<button id="enable-sound" class="control-btn" title="Enable Sound" style="display:none">
+			<i class="fas fa-play"></i>
+		</button>
+	</div>
+
+	<nav>
+    <a href="index.html">Home</a>
+    <a href="map.html">Weather Map</a>
+  	</nav>
+
+	<div class="container">
+		<div class="weather-card">
+			<img src="../Images/BeatherLogo.png" alt="Beather Logo" class="header-logo">
+			<h1>
+				<img src="../Images/Beather.png" alt="Beather logo" class="logo">
+			</h1>
+			<h3>
+				Weather App
+				          ——The best weather app
+			</h3>
+			<input type="text" id="city-input"
+				placeholder="Enter city name">
+			<button id="city-input-btn"
+					onclick="weatherFn($('#city-input').val())">
+					Get Weather
+			</button>
+			<div id="weather-info"
+				class="animate__animated animate__fadeIn">
+				<h3 id="city-name"></h3>
+				<p id="date"></p>
+				<p id="temperature"></p>
+				<p id="description"></p>
+				<p id="wind-speed"></p>
+			</div>
+		</div>
+	</div>
+	<script src=
+"https://momentjs.com/downloads/moment.min.js">
+	</script>
+	<script src="script.js"></script>
+</body>
+
+</html>
